@@ -43,8 +43,8 @@ private CustomSuccessHandler customSuccessHandler;
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/", "/signup", "/register", "/css/**", "/images/**","/js/**", "/oauth2/**" ,"/login/oauth2/**").permitAll()
-                .requestMatchers("/admin/**").hasRole("ADMIN")       // For role-based access
-                .requestMatchers("/student/**").hasRole("STUDENT")
+                .requestMatchers("/admin/**").hasRole("ROLE_ADMIN")       // For role-based access
+                .requestMatchers("/student/**").hasRole("ROLE_STUDENT")
                 .requestMatchers("/dashboard").authenticated()
                 .anyRequest().authenticated()
             )
